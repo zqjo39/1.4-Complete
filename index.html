@@ -3,10 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <title>Graphs</title>
+    <title>Datasets</title>
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
     <body>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <div style="width: 500px">
+            <canvas id="myChart"></canvas>
+        </div>
+        <script>
+            var ctx = document.getElementById('myChart');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Amazon', 'Target', 'Walmart'],
+                    datasets: [{
+                        label: '# of Votes',
+                        data: [75, 22, 46],
+                        backgroundColor: [
+                            'rgba(255, 234, 0, 0.2)',
+                            'rgba(255,0,0,0.2)',
+                            'rgba(0, 0, 255, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgb(255, 234, 0)',
+                            'rgba(255, 30, 30, 1)',
+                            'rgba(0, 0, 255, 1)',
+                        ],
+                        borderWidth:  1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    },
+                    indexAxis: 'y'
+                }
+            });
+        </script>
+        <div style="width: 500px">
+            <canvas id="myChart2"></canvas>
+        </div>
+        <script>
+            var cty = document.getElementById('myChart2');
+            var myChart2 = new Chart(cty, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Caucasian', 'African American', 'American Indian', 'Asian', 'Pacific Islander', 'Other'],
+                    datasets: [{
+                        label: '(Unmixed) Ethnicities in the United States',
+                        data: [204837865, 41332911, 3745005, 19890050, 690559, 28754031],
+                        backgroundColor: [
+                            'rgb(231, 203, 191)',
+                            'rgb(66,42,18)',
+                            'rgb(189,152,116)',
+                            'rgb(222,196,159)',
+                            'rgb(161,136,110)',
+                            'rgb(185,162,111)',
+                        ],
+                        hoverOffset: 1,
+                    }],
+                },
+            });
+        </script>
+        <canvas id="myChart3"></canvas>
+        <script>
+            /*take the first temp. of each month for each place*/
+            var ctz = document.getElementById('myChart3');
+            var myChart3 = new Chart(ctz, {
+                type: 'line',
+                data: {
+                    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                    datasets: [{
+                        data: [94, 98, , 48, 114, 46, 101, 33, 46, 82, 119, 25],
+                        label: 'Fresno, CA, USA',
+                        borderColor: 'rgba(120, 120, 255, 1)'
+                    },
+                        {
+                            data: [122, 42, 82, 0, 74, 26, 33, 11, 15, 110, 91, 100],
+                            label: 'San Luis, Peru',
+                            borderColor: 'rgba(255, 100, 255, 1)'
+                        },
+                        {
+                            data: [91, 103, 58, 43, 108, 92, 77, 116, 19, 47, 86, 121],
+                            label: 'Maijdee, Bangladesh',
+                            borderColor: 'rgba(100, 200, 100, 1)'
+                        },
+                        {
+                            data: [91, 103, 58, 43, 108, 92, 77, 116, 19, 47, 86, 121],
+                            label: 'Kimito, Finland',
+                            borderColor: 'rgba(100, 200, 100, 1)'
+                        },
+                        {
+                            data: [0, 26, 33, 11, 5, 110, 91, 20, 36, 10, 56, 27],
+                            label: 'Kurow, New Zealand',
+                            borderColor: 'rgba(250, 250, 150, 1)'
+                        },
+                        {
+                            data: [122, 42, 82, 0, 74, 26, 33, 11, 15, 110, 91, 100],
+                            label: 'Castro, Italy',
+                            borderColor: 'rgba(255, 100, 255, 1)'
+                        }]
+                },
+                options: {
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Monthly Spending'
+                        },
+                        legend: {
+                            position: 'left'
+                        }
+                    }
+                }
+            });
+        </script>
     </body>
 </html>
